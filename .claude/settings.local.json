@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:finxbridge.com)",
+      "Bash(dir /s /b \"c:\\Projects\\finxWebsite\")",
+      "Bash(dir \"c:\\Projects\\finxWebsite\")",
+      "Bash(dir:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run build:*)",
+      "Bash(find:*)",
+      "Bash(for file in app/about/page.tsx app/capabilities/ecommerce/page.tsx app/capabilities/product/page.tsx app/careers/page.tsx app/case-studies/page.tsx app/contact/page.tsx app/services/page.tsx app/solutions/page.tsx)",
+      "Bash(do sed -i \"s/from-primary via-primary-dark to-\\[#0f4cc4\\]/from-primary via-primary-slate to-primary-aqua/g\" \"$file\")",
+      "Bash(done)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
