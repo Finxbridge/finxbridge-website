@@ -1,9 +1,10 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import Partners from '@/components/Partners'
 
 export const metadata: Metadata = {
-  title: 'Our Services - FinXbridge | Fintech Solutions & Digital Transformation',
-  description: 'Explore FinXbridge comprehensive fintech services including digital transformation, risk management, compliance solutions, and technology consulting for banks, NBFCs, and fintechs.',
+  title: 'Our Services - Finxbridge | Fintech Solutions & Digital Transformation',
+  description: 'Explore Finxbridge comprehensive fintech services including digital transformation, risk management, compliance solutions, and technology consulting for banks, NBFCs, and fintechs.',
 }
 
 export default function ServicesPage() {
@@ -231,6 +232,9 @@ export default function ServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Partners Section */}
+      <Partners />
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-primary-slate to-primary-aqua text-white">

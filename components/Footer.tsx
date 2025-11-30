@@ -69,16 +69,16 @@ const Footer = () => {
     <footer className="bg-dark text-light-white">
       <div className="container-custom">
         {/* Main Footer */}
-        <div className="py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="py-8 sm:py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
           {/* Brand Column */}
           <div>
             <Link href="/" className="flex items-center mb-4">
               <Image
                 src="/logo.png"
-                alt="FinXbridge Logo"
+                alt="Finxbridge Logo"
                 width={120}
                 height={60}
-                className="object-contain"
+                className="object-contain w-24 h-12 md:w-28 md:h-14 lg:w-32 lg:h-16"
               />
             </Link>
             <p className="text-dark-light mb-4 leading-relaxed">
@@ -152,13 +152,10 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-dark-light/20 py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-dark-light text-sm">
-              © {currentYear} FinXbridge. All rights reserved.
-            </p>
-            <p className="text-dark-light text-sm">
-              Built with Next.js & Tailwind CSS
+        <div className="border-t border-dark-light/20 py-4 sm:py-6">
+          <div className="flex justify-center items-center">
+            <p className="text-dark-light text-sm text-center">
+              © {currentYear} Finxbridge. All rights reserved.
             </p>
           </div>
         </div>

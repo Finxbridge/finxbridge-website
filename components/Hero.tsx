@@ -12,7 +12,7 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-light via-primary to-primary-slate"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary-light via-primary to-primary-slate pt-20 pb-16 sm:pt-24 sm:pb-12 md:pt-28 md:pb-16"
     >
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
@@ -28,14 +28,14 @@ const Hero = () => {
               isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}
           >
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               Empowering Financial Innovation with{' '}
-              <span className="text-light bg-white bg-opacity-20 px-2 rounded">
+              <span className="text-light bg-white bg-opacity-20 px-2 py-1 rounded">
                 Expert Fintech Solutions
               </span>
             </h1>
-            <p className="text-lg md:text-xl mb-8 text-light-white opacity-90 leading-relaxed">
-              At FinXbridge, we empower banks, NBFCs, and fintechs in India with expert
+            <p className="text-base sm:text-lg md:text-xl mb-8 text-light-white opacity-90 leading-relaxed">
+              At Finxbridge, we empower banks, NBFCs, and fintechs in India with expert
               fintech solutions that mitigate risks and ensure successful digital
               transformation
             </p>
@@ -101,9 +101,9 @@ const Hero = () => {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="flex flex-col items-center gap-2 text-white opacity-75">
-          <span className="text-sm">Scroll Down</span>
+          <span className="text-xs sm:text-sm">Scroll Down</span>
           <svg
             className="w-6 h-6"
             fill="none"

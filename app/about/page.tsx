@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'About Us - FinXbridge | Expert Fintech Solutions',
-  description: 'Learn about FinXbridge, our mission to empower financial innovation, and our team of fintech experts helping banks, NBFCs, and fintechs succeed.',
+  title: 'About Us - Finxbridge | Expert Fintech Solutions',
+  description: 'Learn about Finxbridge, our mission to empower financial innovation, and our team of fintech experts helping banks, NBFCs, and fintechs succeed.',
 }
 
 export default function AboutPage() {
@@ -14,7 +14,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-              About FinXbridge
+              About Finxbridge
             </h1>
             <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto animate-slide-up">
               Empowering Financial Innovation with Expert Fintech Solutions
@@ -65,7 +65,7 @@ export default function AboutPage() {
               <h2 className="text-4xl font-bold text-dark mb-6">Our Story</h2>
               <div className="space-y-4 text-dark-light leading-relaxed">
                 <p>
-                  Founded with a vision to revolutionize the financial services industry in India, FinXbridge has grown
+                  Founded with a vision to revolutionize the financial services industry in India, Finxbridge has grown
                   into a trusted partner for banks, NBFCs, and fintech companies seeking to navigate the complex
                   landscape of digital transformation.
                 </p>
@@ -142,7 +142,7 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-dark mb-4">Why Choose FinXbridge</h2>
+            <h2 className="text-4xl font-bold text-dark mb-4">Why Choose Finxbridge</h2>
             <p className="text-xl text-dark-light max-w-3xl mx-auto">
               What sets us apart in the fintech industry
             </p>
@@ -189,7 +189,7 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Transform Your Financial Services?</h2>
           <p className="text-xl text-white/90 mb-8">
-            Let's discuss how FinXbridge can help your organization achieve its digital transformation goals.
+            Let's discuss how Finxbridge can help your organization achieve its digital transformation goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

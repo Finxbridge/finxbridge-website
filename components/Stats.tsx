@@ -74,11 +74,11 @@ const Stats = () => {
               }`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
-              <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-2">
                 {stat.value}
                 {stat.suffix}
               </div>
-              <div className="text-sm md:text-base opacity-90">{stat.label}</div>
+              <div className="text-xs sm:text-sm md:text-base opacity-90">{stat.label}</div>
             </div>
           ))}
         </div>

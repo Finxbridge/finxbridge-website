@@ -63,10 +63,10 @@ const About = () => {
             }`}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-6">
-              About <span className="gradient-text">FinXbridge</span>
+              About <span className="gradient-text">Finxbridge</span>
             </h2>
             <p className="text-lg text-dark-light mb-6 leading-relaxed">
-              FinXbridge is a leading fintech solutions provider dedicated to empowering
+              Finxbridge is a leading fintech solutions provider dedicated to empowering
               financial institutions across India. We specialize in helping banks, NBFCs,
               and fintech companies navigate their digital transformation journey.
             </p>

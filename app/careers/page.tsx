@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Careers - FinXbridge | Join Our Fintech Team',
-  description: 'Explore exciting career opportunities at FinXbridge. Join our team of fintech experts and help shape the future of financial technology in India.',
+  title: 'Careers - Finxbridge | Join Our Fintech Team',
+  description: 'Explore exciting career opportunities at Finxbridge. Join our team of fintech experts and help shape the future of financial technology in India.',
 }
 
 export default function CareersPage() {
@@ -147,7 +147,7 @@ export default function CareersPage() {
               Join Our Team
             </h1>
             <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto animate-slide-up">
-              Build the Future of Financial Technology with FinXbridge
+              Build the Future of Financial Technology with Finxbridge
             </p>
           </div>
         </div>
@@ -157,7 +157,7 @@ export default function CareersPage() {
       <section className="py-20 bg-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-dark mb-4">Why Work at FinXbridge</h2>
+            <h2 className="text-4xl font-bold text-dark mb-4">Why Work at Finxbridge</h2>
             <p className="text-xl text-dark-light max-w-3xl mx-auto">
               Join a team that's passionate about innovation and making a real impact in fintech
             </p>

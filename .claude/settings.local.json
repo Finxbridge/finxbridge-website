@@ -10,7 +10,10 @@
       "Bash(find:*)",
       "Bash(for file in app/about/page.tsx app/capabilities/ecommerce/page.tsx app/capabilities/product/page.tsx app/careers/page.tsx app/case-studies/page.tsx app/contact/page.tsx app/services/page.tsx app/solutions/page.tsx)",
       "Bash(do sed -i \"s/from-primary via-primary-dark to-\\[#0f4cc4\\]/from-primary via-primary-slate to-primary-aqua/g\" \"$file\")",
-      "Bash(done)"
+      "Bash(done)",
+      "Bash(npm run dev:*)",
+      "Bash(taskkill:*)",
+      "Bash(exit 0)"
     ],
     "deny": [],
     "ask": []

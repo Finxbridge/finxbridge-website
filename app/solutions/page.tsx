@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Solutions - FinXbridge | Industry-Specific Fintech Solutions',
-  description: 'Discover FinXbridge industry-specific fintech solutions designed for banks, NBFCs, and financial institutions across India.',
+  title: 'Solutions - Finxbridge | Industry-Specific Fintech Solutions',
+  description: 'Discover Finxbridge industry-specific fintech solutions designed for banks, NBFCs, and financial institutions across India.',
 }
 
 export default function SolutionsPage() {

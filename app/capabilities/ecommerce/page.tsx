@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Ecommerce Capabilities - FinXbridge | Financial Ecommerce Solutions',
-  description: 'Explore FinXbridge ecommerce capabilities including payment processing, digital commerce, and financial technology solutions for online businesses.',
+  title: 'Ecommerce Capabilities - Finxbridge | Financial Ecommerce Solutions',
+  description: 'Explore Finxbridge ecommerce capabilities including payment processing, digital commerce, and financial technology solutions for online businesses.',
 }
 
 export default function EcommercePage() {

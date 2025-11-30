@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Product Capabilities - FinXbridge | Fintech Product Solutions',
-  description: 'Explore FinXbridge product capabilities including product development, management, and innovation solutions for financial institutions.',
+  title: 'Product Capabilities - Finxbridge | Fintech Product Solutions',
+  description: 'Explore Finxbridge product capabilities including product development, management, and innovation solutions for financial institutions.',
 }
 
 export default function ProductPage() {

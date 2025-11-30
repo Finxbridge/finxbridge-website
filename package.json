@@ -1,10 +1,10 @@
 {
   "name": "finxbridge-clone",
   "version": "1.0.0",
-  "description": "FinXbridge website clone built with Next.js and Tailwind CSS",
+  "description": "Finxbridge website clone built with Next.js and Tailwind CSS",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "node kill-port.js && next dev -p 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"

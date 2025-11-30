@@ -60,7 +60,7 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Contact Information */}
           <div
             className={`transition-all duration-1000 ${
@@ -167,7 +167,7 @@ const Contact = () => {
               inView ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
           >
-            <form onSubmit={handleSubmit} className="bg-white rounded-xl p-8 shadow-lg">
+            <form onSubmit={handleSubmit} className="bg-white rounded-xl p-6 sm:p-8 shadow-lg">
               <div className="mb-6">
                 <label htmlFor="name" className="block text-dark font-medium mb-2">
                   Name *

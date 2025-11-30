@@ -2,8 +2,8 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: 'Case Studies - FinXbridge | Success Stories & Client Testimonials',
-  description: 'Explore how FinXbridge has helped banks, NBFCs, and fintechs achieve digital transformation success with our proven solutions.',
+  title: 'Case Studies - Finxbridge | Success Stories & Client Testimonials',
+  description: 'Explore how Finxbridge has helped banks, NBFCs, and fintechs achieve digital transformation success with our proven solutions.',
 }
 
 export default function CaseStudiesPage() {
@@ -225,7 +225,7 @@ export default function CaseStudiesPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                quote: "FinXbridge transformed our digital infrastructure completely. Their expertise and commitment to our success were exceptional.",
+                quote: "Finxbridge transformed our digital infrastructure completely. Their expertise and commitment to our success were exceptional.",
                 author: "CTO, Leading Private Bank",
                 rating: 5
               },
@@ -261,7 +261,7 @@ export default function CaseStudiesPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Write Your Success Story?</h2>
           <p className="text-xl text-white/90 mb-8">
-            Join the growing list of successful financial institutions transforming with FinXbridge.
+            Join the growing list of successful financial institutions transforming with Finxbridge.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

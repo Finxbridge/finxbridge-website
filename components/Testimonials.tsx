@@ -16,21 +16,21 @@ const Testimonials = () => {
       name: 'Rajesh Kumar',
       position: 'CTO, Leading NBFC',
       content:
-        'FinXbridge transformed our digital lending platform. Their expertise in fintech solutions and regulatory compliance was invaluable. The team delivered beyond our expectations.',
+        'Finxbridge transformed our digital lending platform. Their expertise in fintech solutions and regulatory compliance was invaluable. The team delivered beyond our expectations.',
       avatar: 'RK',
     },
     {
       name: 'Priya Sharma',
       position: 'VP Technology, Major Bank',
       content:
-        'Working with FinXbridge was a game-changer for our digital transformation journey. Their deep understanding of banking technology and customer-centric approach made all the difference.',
+        'Working with Finxbridge was a game-changer for our digital transformation journey. Their deep understanding of banking technology and customer-centric approach made all the difference.',
       avatar: 'PS',
     },
     {
       name: 'Amit Patel',
       position: 'Founder, Fintech Startup',
       content:
-        'The FinXbridge team helped us build a scalable payment platform from the ground up. Their technical expertise and industry insights were crucial to our success.',
+        'The Finxbridge team helped us build a scalable payment platform from the ground up. Their technical expertise and industry insights were crucial to our success.',
       avatar: 'AP',
     },
   ]

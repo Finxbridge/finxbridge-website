@@ -1,6 +1,6 @@
-# FinXbridge Website Clone
+# Finxbridge Website Clone
 
-A modern, fully responsive recreation of the FinXbridge website built with Next.js 14, TypeScript, and Tailwind CSS. This project demonstrates production-ready code with best practices for performance, SEO, and accessibility.
+A modern, fully responsive recreation of the Finxbridge website built with Next.js 14, TypeScript, and Tailwind CSS. This project demonstrates production-ready code with best practices for performance, SEO, and accessibility.
 
 ## Features
 
@@ -240,7 +240,7 @@ For issues or questions:
 
 ## Acknowledgments
 
-- Original design inspiration: [FinXbridge](https://finxbridge.com/)
+- Original design inspiration: [Finxbridge](https://finxbridge.com/)
 - Built with [Next.js](https://nextjs.org/)
 - Styled with [Tailwind CSS](https://tailwindcss.com/)
 - Icons from [Heroicons](https://heroicons.com/)
