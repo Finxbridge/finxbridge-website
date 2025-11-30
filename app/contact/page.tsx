@@ -15,21 +15,58 @@ export default function ContactPage() {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    })
+    const { name, value } = e.target
+
+    // Phone number validation - only allow digits and limit to 10
+    if (name === 'phone') {
+      const digitsOnly = value.replace(/\D/g, '').slice(0, 10)
+      setFormData({
+        ...formData,
+        [name]: digitsOnly
+      })
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value
+      })
+    }
+
+    // Clear error when user starts typing
+    if (submitStatus === 'error') {
+      setSubmitStatus('idle')
+      setErrorMessage('')
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    console.log('Contact page form submitted with data:', formData)
     setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      console.log('Sending request to /api/contact...')
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, source: 'contact-page' }),
+      })
+
+      console.log('Response received:', response.status, response.statusText)
+      const data = await response.json()
+      console.log('Response data:', data)
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      // Success
       setSubmitStatus('success')
       setFormData({
         name: '',
@@ -41,8 +78,16 @@ export default function ContactPage() {
       })
 
       // Reset success message after 5 seconds
-      setTimeout(() => setSubmitStatus('idle'), 5000)
-    }, 1500)
+      setTimeout(() => {
+        setSubmitStatus('idle')
+      }, 5000)
+    } catch (error) {
+      console.error('Contact form error:', error)
+      setSubmitStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -108,7 +153,7 @@ export default function ContactPage() {
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
                     <label htmlFor="phone" className="block text-sm font-semibold text-dark mb-2">
-                      Phone Number
+                      Phone Number *
                     </label>
                     <input
                       type="tel"
@@ -116,14 +161,18 @@ export default function ContactPage() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
+                      required
+                      pattern="[0-9]{10}"
+                      maxLength={10}
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
-                      placeholder="+91 98765 43210"
+                      placeholder="9876543210"
+                      title="Please enter a valid 10-digit phone number"
                     />
                   </div>
 
                   <div>
                     <label htmlFor="company" className="block text-sm font-semibold text-dark mb-2">
-                      Company Name
+                      Company Name *
                     </label>
                     <input
                       type="text"
@@ -131,6 +180,7 @@ export default function ContactPage() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
+                      required
                       className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all"
                       placeholder="Your Company"
                     />
@@ -175,15 +225,16 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {submitStatus === 'success' && (
-                  <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
-                    Thank you! Your message has been sent successfully. We'll get back to you soon.
+                {submitStatus === 'error' && errorMessage && (
+                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                    <p className="font-semibold mb-1">Error</p>
+                    <p>{errorMessage}</p>
                   </div>
                 )}
 
-                {submitStatus === 'error' && (
-                  <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
-                    Oops! Something went wrong. Please try again.
+                {submitStatus === 'success' && (
+                  <div className="bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg">
+                    Thank you! Your message has been sent successfully. We'll get back to you soon.
                   </div>
                 )}
 

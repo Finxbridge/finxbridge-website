@@ -18,28 +18,59 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState('')
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
+    // Clear error when user starts typing
+    if (submitStatus === 'error') {
+      setSubmitStatus('idle')
+      setErrorMessage('')
+    }
   }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    console.log('Form submitted with data:', formData)
     setIsSubmitting(true)
+    setSubmitStatus('idle')
+    setErrorMessage('')
 
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false)
+    try {
+      console.log('Sending request to /api/contact...')
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ ...formData, source: 'homepage' }),
+      })
+
+      console.log('Response received:', response.status, response.statusText)
+      const data = await response.json()
+      console.log('Response data:', data)
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      // Success
       setSubmitStatus('success')
       setFormData({ name: '', email: '', company: '', message: '' })
 
+      // Reset success message after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle')
       }, 5000)
-    }, 1500)
+    } catch (error) {
+      setSubmitStatus('error')
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
@@ -230,6 +261,13 @@ const Contact = () => {
                   placeholder="Tell us about your project..."
                 />
               </div>
+
+              {submitStatus === 'error' && errorMessage && (
+                <div className="mb-6 p-4 bg-red-50 border border-red-200 rounded-lg text-red-700">
+                  <p className="font-semibold mb-1">Error</p>
+                  <p>{errorMessage}</p>
+                </div>
+              )}
 
               {submitStatus === 'success' && (
                 <div className="mb-6 p-4 bg-green-50 border border-green-200 rounded-lg text-green-700">
