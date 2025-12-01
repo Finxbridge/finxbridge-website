@@ -9,14 +9,14 @@ const Partners = () => {
   })
 
   const partners = [
-    { name: 'HDFC Bank', logo: 'HDFC' },
-    { name: 'ICICI Bank', logo: 'ICICI' },
-    { name: 'Axis Bank', logo: 'AXIS' },
-    { name: 'Bajaj Finserv', logo: 'BAJAJ' },
-    { name: 'Tata Capital', logo: 'TATA' },
-    { name: 'Mahindra Finance', logo: 'M&M' },
-    { name: 'Kotak', logo: 'KOTAK' },
-    { name: 'YES Bank', logo: 'YES' },
+    { name: 'M2P', logo: 'M2P' },
+    { name: 'KugelBiltz', logo: 'KBZ' },
+    { name: 'PhonePe', logo: 'PhonePe' },
+    { name: 'Hasthakalalu', logo: 'KK' },
+    { name: 'Chess & Boards', logo: 'CB' },
+    { name: 'Finflux', logo: 'FF' },
+    { name: 'UnifinTax', logo: 'UFT' },
+    { name: 'Syntizen', logo: 'Syntizen' },
   ]
 
   return (
@@ -68,9 +68,6 @@ const Partners = () => {
             inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <p className="text-dark-light italic">
-            And many more leading financial institutions...
-          </p>
         </div>
       </div>
     </section>

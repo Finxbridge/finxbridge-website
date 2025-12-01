@@ -45,7 +45,7 @@ const Features = () => {
           }`}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-4">
-            Why Choose <span className="gradient-text">Finxbridge</span>
+            Why to Choose <span className="gradient-text">Finxbridge</span>
           </h2>
           <p className="text-lg text-dark-light max-w-3xl mx-auto">
             We combine industry expertise with innovative technology to deliver exceptional
