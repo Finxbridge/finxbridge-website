@@ -1,0 +1,20 @@
+# Test files
+test-email.js
+CONTACT_FORM_TEST_RESULTS.md
+EMAIL_SETUP_GUIDE.md
+
+# Development files
+.env.local
+.env.local.example
+
+# Build files
+.next/
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

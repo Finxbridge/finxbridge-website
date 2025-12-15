@@ -3,6 +3,9 @@ import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
+    // Prevent emails during build time (Vercel sets NODE_ENV to production during build)
+    const isVercelBuild = process.env.VERCEL_ENV === 'production' && process.env.CI === '1'
+
     const body = await request.json()
     const { name, email, company, message, phone, subject, source } = body
 
@@ -44,6 +47,24 @@ export async function POST(request: NextRequest) {
       return NextResponse.json(
         { error: 'Please provide a valid email address' },
         { status: 400 }
+      )
+    }
+
+    // Check if SMTP credentials are configured
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.error('SMTP credentials not configured')
+      return NextResponse.json(
+        { error: 'Email service is not configured. Please contact us directly.' },
+        { status: 503 }
+      )
+    }
+
+    // Skip email sending during build time
+    if (isVercelBuild) {
+      console.log('Skipping email during build time')
+      return NextResponse.json(
+        { message: 'Build mode - email not sent' },
+        { status: 200 }
       )
     }
 
