@@ -20,9 +20,10 @@ const Footer = () => {
       { label: 'Payment Solutions', href: '/services' },
     ],
     legal: [
-      { label: 'Privacy Policy', href: '#' },
-      { label: 'Terms of Service', href: '#' },
-      { label: 'Cookie Policy', href: '#' },
+      { label: 'Privacy Policy', href: '/privacy-policy' },
+      { label: 'Terms & Conditions', href: '/terms' },
+      { label: 'Disclaimer', href: '/disclaimer' },
+      { label: 'Cookie Policy', href: '/cookie-policy' },
     ],
   }
 
@@ -139,12 +140,12 @@ const Footer = () => {
             <ul className="space-y-2">
               {footerLinks.legal.map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="text-dark-light hover:text-primary transition-colors duration-300"
                   >
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
