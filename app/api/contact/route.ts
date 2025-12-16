@@ -41,9 +41,9 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-    if (!emailRegex.test(email)) {
+    // Email validation with length check to prevent ReDoS
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+    if (typeof email !== 'string' || email.length > 254 || !emailRegex.test(email)) {
       return NextResponse.json(
         { error: 'Please provide a valid email address' },
         { status: 400 }
