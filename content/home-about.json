@@ -1,0 +1,24 @@
+{
+  "title": "About",
+  "titleHighlight": "Finxbridge",
+  "paragraphs": [
+    "Finxbridge is a leading fintech solutions provider dedicated to empowering financial institutions across India. We specialize in helping banks, NBFCs, and fintech companies navigate their digital transformation journey.",
+    "Our team of expert consultants brings together deep industry knowledge and cutting-edge technology expertise to deliver solutions that mitigate risks, ensure compliance, and drive innovation."
+  ],
+  "features": [
+    {
+      "title": "Industry Expertise",
+      "description": "Deep understanding of Indian financial sector regulations and requirements"
+    },
+    {
+      "title": "Proven Solutions",
+      "description": "Battle-tested platforms that scale with your business growth"
+    },
+    {
+      "title": "End-to-End Support",
+      "description": "From consultation to implementation and ongoing maintenance"
+    }
+  ],
+  "ctaText": "Learn More About Us",
+  "ctaHref": "#contact"
+}

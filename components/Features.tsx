@@ -1,39 +1,24 @@
 'use client'
 
 import { useInView } from 'react-intersection-observer'
+import { FeatureItem } from '@/lib/content'
 
-const Features = () => {
+interface FeaturesContent {
+  title: string
+  titleHighlight: string
+  description: string
+  features: FeatureItem[]
+}
+
+interface FeaturesProps {
+  content: FeaturesContent
+}
+
+const Features = ({ content }: FeaturesProps) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
   })
-
-  const features = [
-    {
-      title: 'Expert Team',
-      description: 'Seasoned professionals with deep expertise in financial technology and digital transformation',
-      stat: '50+',
-      label: 'Experts',
-    },
-    {
-      title: 'Proven Track Record',
-      description: 'Successfully delivered solutions to leading financial institutions across India',
-      stat: '100+',
-      label: 'Projects',
-    },
-    {
-      title: 'Compliance First',
-      description: 'Solutions designed with regulatory compliance and security at the core',
-      stat: '100%',
-      label: 'Compliant',
-    },
-    {
-      title: 'Innovation Driven',
-      description: 'Leveraging cutting-edge technology to deliver competitive advantages',
-      stat: '24/7',
-      label: 'Support',
-    },
-  ]
 
   return (
     <section className="section-padding bg-white">
@@ -45,16 +30,15 @@ const Features = () => {
           }`}
         >
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-4">
-            Why to Choose <span className="gradient-text">Finxbridge</span>
+            {content.title} <span className="gradient-text">{content.titleHighlight}</span>
           </h2>
           <p className="text-lg text-dark-light max-w-3xl mx-auto">
-            We combine industry expertise with innovative technology to deliver exceptional
-            results
+            {content.description}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {features.map((feature, index) => (
+          {content.features.map((feature, index) => (
             <div
               key={index}
               className={`text-center transition-all duration-1000 ${

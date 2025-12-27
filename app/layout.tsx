@@ -5,6 +5,37 @@ import Footer from '@/components/Footer'
 import ScrollProgress from '@/components/ScrollProgress'
 import ScrollToTop from '@/components/ScrollToTop'
 import CookieConsent from '@/components/CookieConsent'
+import { loadContent } from '@/lib/content'
+
+interface MenuItem {
+  label: string
+  href: string
+  dropdown?: Array<{ label: string; href: string }>
+}
+
+interface FooterLink {
+  label: string
+  href: string
+}
+
+interface SocialLink {
+  name: string
+  href: string
+}
+
+interface NavigationContent {
+  header: {
+    menuItems: MenuItem[]
+  }
+  footer: {
+    brandDescription: string
+    company: FooterLink[]
+    services: FooterLink[]
+    legal: FooterLink[]
+    socialLinks: SocialLink[]
+    copyright: string
+  }
+}
 
 export const metadata: Metadata = {
   title: 'Finxbridge - Empowering Financial Innovation with Expert Fintech Solutions',
@@ -23,18 +54,20 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode
 }) {
+  const navigation = await loadContent<NavigationContent>('navigation.json')
+
   return (
     <html lang="en">
       <body>
         <ScrollProgress />
-        <Header />
+        <Header menuItems={navigation.header.menuItems} />
         <main>{children}</main>
-        <Footer />
+        <Footer content={navigation.footer} />
         <ScrollToTop />
         <CookieConsent />
       </body>

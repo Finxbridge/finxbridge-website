@@ -1,0 +1,8 @@
+{
+  "stats": [
+    { "key": "clients", "value": 150, "suffix": "+", "label": "Happy Clients" },
+    { "key": "projects", "value": 500, "suffix": "+", "label": "Projects Completed" },
+    { "key": "satisfaction", "value": 98, "suffix": "%", "label": "Client Satisfaction" },
+    { "key": "experience", "value": 15, "suffix": "+", "label": "Years Experience" }
+  ]
+}

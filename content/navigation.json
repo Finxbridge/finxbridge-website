@@ -1,0 +1,49 @@
+{
+  "header": {
+    "menuItems": [
+      { "label": "About", "href": "/about" },
+      {
+        "label": "Capabilities",
+        "href": "#",
+        "dropdown": [
+          { "label": "Product", "href": "/capabilities/product" },
+          { "label": "Ecommerce", "href": "/capabilities/ecommerce" }
+        ]
+      },
+      { "label": "Services", "href": "/services" },
+      { "label": "Solutions", "href": "/solutions" },
+      { "label": "Careers", "href": "/careers" },
+      { "label": "Contact", "href": "/contact" }
+    ]
+  },
+  "footer": {
+    "brandDescription": "Empowering financial innovation with expert fintech solutions for banks, NBFCs, and fintechs across India.",
+    "company": [
+      { "label": "About Us", "href": "/about" },
+      { "label": "Services", "href": "/services" },
+      { "label": "Solutions", "href": "/solutions" },
+      { "label": "Case Studies", "href": "/case-studies" },
+      { "label": "Careers", "href": "/careers" },
+      { "label": "Contact", "href": "/contact" }
+    ],
+    "services": [
+      { "label": "Digital Transformation", "href": "/services" },
+      { "label": "Risk Management", "href": "/services" },
+      { "label": "Compliance Solutions", "href": "/services" },
+      { "label": "Payment Solutions", "href": "/services" }
+    ],
+    "legal": [
+      { "label": "Privacy Policy", "href": "/privacy-policy" },
+      { "label": "Terms & Conditions", "href": "/terms" },
+      { "label": "Disclaimer", "href": "/disclaimer" },
+      { "label": "Cookie Policy", "href": "/cookie-policy" }
+    ],
+    "socialLinks": [
+      { "name": "LinkedIn", "href": "#" },
+      { "name": "Twitter", "href": "#" },
+      { "name": "Facebook", "href": "#" },
+      { "name": "Instagram", "href": "#" }
+    ],
+    "copyright": "Finxbridge. All rights reserved."
+  }
+}

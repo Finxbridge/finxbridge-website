@@ -4,7 +4,17 @@ import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const Header = () => {
+interface MenuItem {
+  label: string
+  href: string
+  dropdown?: Array<{ label: string; href: string }>
+}
+
+interface HeaderProps {
+  menuItems: MenuItem[]
+}
+
+const Header = ({ menuItems }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isCapabilitiesOpen, setIsCapabilitiesOpen] = useState(false)
@@ -17,22 +27,6 @@ const Header = () => {
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const menuItems = [
-    { label: 'About', href: '/about' },
-    {
-      label: 'Capabilities',
-      href: '#',
-      dropdown: [
-        { label: 'Product', href: '/capabilities/product' },
-        { label: 'Ecommerce', href: '/capabilities/ecommerce' },
-      ]
-    },
-    { label: 'Services', href: '/services' },
-    { label: 'Solutions', href: '/solutions' },
-    { label: 'Careers', href: '/careers' },
-    { label: 'Contact', href: '/contact' },
-  ]
 
   return (
     <header

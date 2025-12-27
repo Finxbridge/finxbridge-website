@@ -2,7 +2,23 @@
 
 import { useInView } from 'react-intersection-observer'
 
-const About = () => {
+interface HomeAboutContent {
+  title: string
+  titleHighlight: string
+  paragraphs: string[]
+  features: Array<{
+    title: string
+    description: string
+  }>
+  ctaText: string
+  ctaHref: string
+}
+
+interface AboutProps {
+  content: HomeAboutContent
+}
+
+const About = ({ content }: AboutProps) => {
   const { ref, inView } = useInView({
     threshold: 0.1,
     triggerOnce: true,
@@ -63,95 +79,42 @@ const About = () => {
             }`}
           >
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-dark mb-6">
-              About <span className="gradient-text">Finxbridge</span>
+              {content.title} <span className="gradient-text">{content.titleHighlight}</span>
             </h2>
-            <p className="text-lg text-dark-light mb-6 leading-relaxed">
-              Finxbridge is a leading fintech solutions provider dedicated to empowering
-              financial institutions across India. We specialize in helping banks, NBFCs,
-              and fintech companies navigate their digital transformation journey.
-            </p>
-            <p className="text-lg text-dark-light mb-6 leading-relaxed">
-              Our team of expert consultants brings together deep industry knowledge and
-              cutting-edge technology expertise to deliver solutions that mitigate risks,
-              ensure compliance, and drive innovation.
-            </p>
+            {content.paragraphs.map((paragraph, index) => (
+              <p key={index} className="text-lg text-dark-light mb-6 leading-relaxed">
+                {paragraph}
+              </p>
+            ))}
 
             <div className="space-y-4 mb-8">
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
+              {content.features.map((feature, index) => (
+                <div key={index} className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
+                    <svg
+                      className="w-4 h-4 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-dark mb-1">{feature.title}</h4>
+                    <p className="text-dark-light">{feature.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="font-semibold text-dark mb-1">Industry Expertise</h4>
-                  <p className="text-dark-light">
-                    Deep understanding of Indian financial sector regulations and requirements
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-dark mb-1">Proven Solutions</h4>
-                  <p className="text-dark-light">
-                    Battle-tested platforms that scale with your business growth
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-6 h-6 bg-primary rounded-full flex items-center justify-center mt-1">
-                  <svg
-                    className="w-4 h-4 text-white"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M5 13l4 4L19 7"
-                    />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-dark mb-1">End-to-End Support</h4>
-                  <p className="text-dark-light">
-                    From consultation to implementation and ongoing maintenance
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
 
-            <a href="#contact" className="btn-primary">
-              Learn More About Us
+            <a href={content.ctaHref} className="btn-primary">
+              {content.ctaText}
             </a>
           </div>
         </div>
