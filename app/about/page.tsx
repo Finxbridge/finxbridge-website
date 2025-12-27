@@ -1,12 +1,63 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { loadContent } from '@/lib/content'
+
+interface AboutPageContent {
+  metadata: {
+    title: string;
+    description: string;
+  };
+  hero: {
+    title: string;
+    subtitle: string;
+  };
+  mission: {
+    title: string;
+    description: string;
+    icon: string;
+  };
+  vision: {
+    title: string;
+    description: string;
+    icon: string;
+  };
+  story: {
+    title: string;
+    paragraphs: string[];
+  };
+  coreValuesSection: {
+    title: string;
+    subtitle: string;
+  };
+  coreValues: Array<{
+    title: string;
+    description: string;
+    icon: string;
+  }>;
+  whyChooseUs: {
+    title: string;
+    subtitle: string;
+    items: Array<{
+      title: string;
+      description: string;
+    }>;
+  };
+  cta: {
+    title: string;
+    description: string;
+    primaryButton: { text: string; href: string };
+    secondaryButton: { text: string; href: string };
+  };
+}
 
 export const metadata: Metadata = {
   title: 'About Us - Finxbridge | Expert Fintech Solutions',
   description: 'Learn about Finxbridge, our mission to empower financial innovation, and our team of fintech experts helping banks, NBFCs, and fintechs succeed.',
 }
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const content = await loadContent<AboutPageContent>('about.json');
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -14,10 +65,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-              About Finxbridge
+              {content.hero.title}
             </h1>
             <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto animate-slide-up">
-              Empowering Financial Innovation with Expert Fintech Solutions
+              {content.hero.subtitle}
             </p>
           </div>
         </div>
@@ -30,27 +81,32 @@ export default function AboutPage() {
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={content.mission.icon} />
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-dark mb-4">Our Mission</h2>
+              <h2 className="text-3xl font-bold text-dark mb-4">{content.mission.title}</h2>
               <p className="text-dark-light leading-relaxed">
-                To empower banks, NBFCs, and fintechs in India with cutting-edge fintech solutions that mitigate risks,
-                ensure successful digital transformation, and drive sustainable growth in the rapidly evolving financial landscape.
+                {content.mission.description}
               </p>
             </div>
 
             <div className="bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow">
               <div className="w-16 h-16 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                  {content.vision.icon.split(' M').map((pathPart, index) => (
+                    <path
+                      key={index}
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={index === 0 ? pathPart : `M${pathPart}`}
+                    />
+                  ))}
                 </svg>
               </div>
-              <h2 className="text-3xl font-bold text-dark mb-4">Our Vision</h2>
+              <h2 className="text-3xl font-bold text-dark mb-4">{content.vision.title}</h2>
               <p className="text-dark-light leading-relaxed">
-                To be India's most trusted partner in financial technology transformation, recognized for innovation,
-                reliability, and our commitment to delivering solutions that shape the future of finance.
+                {content.vision.description}
               </p>
             </div>
           </div>
@@ -62,22 +118,11 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-dark mb-6">Our Story</h2>
+              <h2 className="text-4xl font-bold text-dark mb-6">{content.story.title}</h2>
               <div className="space-y-4 text-dark-light leading-relaxed">
-                <p>
-                  Founded with a vision to revolutionize the financial services industry in India, Finxbridge has grown
-                  into a trusted partner for banks, NBFCs, and fintech companies seeking to navigate the complex
-                  landscape of digital transformation.
-                </p>
-                <p>
-                  Our journey began with a simple yet powerful idea: financial institutions need more than just
-                  technology solutions – they need strategic partners who understand the unique challenges and
-                  opportunities in the Indian financial ecosystem.
-                </p>
-                <p>
-                  Today, we serve numerous clients across India, helping them implement robust fintech solutions,
-                  manage risks effectively, and achieve their digital transformation goals with confidence.
-                </p>
+                {content.story.paragraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
             </div>
             <div className="relative">
@@ -95,35 +140,14 @@ export default function AboutPage() {
       <section className="py-20 bg-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-dark mb-4">Our Core Values</h2>
+            <h2 className="text-4xl font-bold text-dark mb-4">{content.coreValuesSection.title}</h2>
             <p className="text-xl text-dark-light max-w-3xl mx-auto">
-              The principles that guide everything we do
+              {content.coreValuesSection.subtitle}
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                title: 'Innovation',
-                description: 'Continuously pushing boundaries to deliver cutting-edge solutions',
-                icon: 'M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z'
-              },
-              {
-                title: 'Integrity',
-                description: 'Building trust through transparency and ethical practices',
-                icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z'
-              },
-              {
-                title: 'Excellence',
-                description: 'Striving for the highest standards in everything we deliver',
-                icon: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z'
-              },
-              {
-                title: 'Partnership',
-                description: 'Collaborating closely with clients to ensure their success',
-                icon: 'M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z'
-              }
-            ].map((value, index) => (
+            {content.coreValues.map((value, index) => (
               <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1">
                 <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
                   <svg className="w-7 h-7 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -142,39 +166,14 @@ export default function AboutPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-dark mb-4">Why Choose Finxbridge</h2>
+            <h2 className="text-4xl font-bold text-dark mb-4">{content.whyChooseUs.title}</h2>
             <p className="text-xl text-dark-light max-w-3xl mx-auto">
-              What sets us apart in the fintech industry
+              {content.whyChooseUs.subtitle}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                title: 'Deep Industry Expertise',
-                description: 'Our team brings years of experience in financial services and technology, understanding both worlds perfectly.'
-              },
-              {
-                title: 'Proven Track Record',
-                description: 'Successfully delivered 500+ projects for leading banks, NBFCs, and fintech companies across India.'
-              },
-              {
-                title: 'Risk Mitigation Focus',
-                description: 'We prioritize security, compliance, and risk management in every solution we deliver.'
-              },
-              {
-                title: 'End-to-End Support',
-                description: 'From consultation to implementation and ongoing support, we are with you every step of the way.'
-              },
-              {
-                title: 'Cutting-Edge Technology',
-                description: 'Leveraging the latest technologies to deliver innovative solutions that drive real business value.'
-              },
-              {
-                title: 'Client-Centric Approach',
-                description: 'Your success is our success. We tailor our solutions to meet your specific needs and objectives.'
-              }
-            ].map((item, index) => (
+            {content.whyChooseUs.items.map((item, index) => (
               <div key={index} className="p-6 border-l-4 border-primary bg-light hover:bg-white transition-colors">
                 <h3 className="text-xl font-bold text-dark mb-3">{item.title}</h3>
                 <p className="text-dark-light">{item.description}</p>
@@ -187,22 +186,22 @@ export default function AboutPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-primary-slate to-primary-aqua text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Transform Your Financial Services?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">{content.cta.title}</h2>
           <p className="text-xl text-white/90 mb-8">
-            Let's discuss how Finxbridge can help your organization achieve its digital transformation goals.
+            {content.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/contact"
+              href={content.cta.primaryButton.href}
               className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-light transition-colors inline-block"
             >
-              Contact Us Today
+              {content.cta.primaryButton.text}
             </Link>
             <Link
-              href="/services"
+              href={content.cta.secondaryButton.href}
               className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors inline-block"
             >
-              Explore Our Services
+              {content.cta.secondaryButton.text}
             </Link>
           </div>
         </div>

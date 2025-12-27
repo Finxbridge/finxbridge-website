@@ -1,8 +1,13 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { HeroContent } from '@/lib/content'
 
-const Hero = () => {
+interface HeroProps {
+  content: HeroContent
+}
+
+const Hero = ({ content }: HeroProps) => {
   const [isVisible, setIsVisible] = useState(false)
 
   useEffect(() => {
@@ -28,30 +33,28 @@ const Hero = () => {
               }`}
           >
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Empowering Financial Innovation with{' '}
+              {content.headline}{' '}
               <span className="text-light bg-white bg-opacity-20 px-2 py-1 rounded">
-                Expert Fintech Solutions
+                {content.highlightedText}
               </span>
             </h1>
             <p className="text-base sm:text-lg md:text-xl mb-8 text-light-white opacity-90 leading-relaxed">
-              At Finxbridge, we empower banks, NBFCs, and fintechs in India with expert
-              fintech solutions that mitigate risks and ensure successful digital
-              transformation
+              {content.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <a
-                href="#services"
+                href={content.primaryButton.href}
                 className="inline-block px-8 py-4 bg-white text-primary font-semibold rounded-md
                          hover:bg-light hover:shadow-xl transition-all duration-300 transform hover:scale-105 text-center"
               >
-                Our Services
+                {content.primaryButton.text}
               </a>
               <a
-                href="#contact"
+                href={content.secondaryButton.href}
                 className="inline-block px-8 py-4 bg-transparent border-2 border-white text-white
                          font-semibold rounded-md hover:bg-white hover:text-primary transition-all duration-300 text-center"
               >
-                Contact Us
+                {content.secondaryButton.text}
               </a>
             </div>
           </div>
@@ -101,7 +104,7 @@ const Hero = () => {
       {/* Scroll indicator */}
       <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="flex flex-col items-center gap-2 text-white opacity-75">
-          <span className="text-xs sm:text-sm">Scroll Down</span>
+          <span className="text-xs sm:text-sm">{content.scrollIndicatorText}</span>
           <svg
             className="w-6 h-6"
             fill="none"

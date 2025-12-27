@@ -1,0 +1,31 @@
+{
+  "title": "Why to Choose",
+  "titleHighlight": "Finxbridge",
+  "description": "We combine industry expertise with innovative technology to deliver exceptional results",
+  "features": [
+    {
+      "title": "Expert Team",
+      "description": "Seasoned professionals with deep expertise in financial technology and digital transformation",
+      "stat": "50+",
+      "label": "Experts"
+    },
+    {
+      "title": "Proven Track Record",
+      "description": "Successfully delivered solutions to leading financial institutions across India",
+      "stat": "100+",
+      "label": "Projects"
+    },
+    {
+      "title": "Compliance First",
+      "description": "Solutions designed with regulatory compliance and security at the core",
+      "stat": "100%",
+      "label": "Compliant"
+    },
+    {
+      "title": "Innovation Driven",
+      "description": "Leveraging cutting-edge technology to deliver competitive advantages",
+      "stat": "24/7",
+      "label": "Support"
+    }
+  ]
+}

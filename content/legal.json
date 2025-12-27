@@ -1,0 +1,457 @@
+{
+  "privacyPolicy": {
+    "metadata": {
+      "title": "Privacy Policy - Finxbridge | Data Protection & Privacy",
+      "description": "Learn how Finxbridge collects, uses, and protects your personal information. Our privacy policy outlines our commitment to data security and transparency."
+    },
+    "hero": {
+      "title": "Privacy Policy",
+      "subtitle": "Your privacy and data security are our top priorities"
+    },
+    "intro": {
+      "paragraphs": [
+        "This Privacy Policy describes how Finxbridge LLP (referred to as \"Finxbridge\", \"we\", \"us\", or \"our\") collects, uses, stores, and discloses personal information when you visit our website www.finxbridge.com (the \"Site\") or interact with our products, platforms, APIs, services, or communications.",
+        "Finxbridge operates in the areas of fintech platforms, digital lending enablement, co-lending technology, data analytics, compliance solutions, API integrations, and enterprise technology services."
+      ]
+    },
+    "sections": [
+      {
+        "number": "1",
+        "title": "Collecting Personal Information",
+        "content": "When you visit or interact with our Site or services, we collect certain information related to your device, usage, and business interaction with Finxbridge. In this Privacy Policy, \"Personal Information\" refers to any information that identifies or can reasonably be linked to an individual."
+      },
+      {
+        "number": "2",
+        "title": "Categories of Personal Information We Collect",
+        "subsections": [
+          {
+            "title": "A. Device & Usage Information",
+            "examples": ["IP address", "Browser type and version", "Device type, operating system", "Time zone and location (approximate)", "Cookies and session data", "Pages visited, links clicked, referral URLs", "Interaction logs and access timestamps"],
+            "purposes": ["To operate, secure, and optimize our website", "To analyze site traffic and improve user experience", "To monitor performance, security, and fraud prevention"],
+            "source": "Automatically collected through cookies, log files, analytics tools, and similar technologies when you access the Site",
+            "disclosure": "Shared with trusted analytics, cloud, and security service providers"
+          },
+          {
+            "title": "B. Business & Contact Information",
+            "examples": ["Name", "Company name", "Business email address", "Phone number & OTP", "Designation", "Organization details"],
+            "purposes": ["To respond to enquiries, demos, proposals, and partnership discussions", "To communicate about Finxbridge services, products, or events", "To manage client, vendor, and partner relationships"],
+            "source": "Directly collected from you via website forms, emails, calls, or meetings",
+            "disclosure": "Shared internally and with authorized service providers strictly on a need-to-know basis"
+          },
+          {
+            "title": "C. Client, Platform & Integration Information",
+            "examples": ["API access logs", "Platform usage metadata", "Technical identifiers", "Configuration and integration details", "Audit and compliance logs"],
+            "purposes": ["To deliver fintech platforms, APIs, dashboards, analytics, and integrations", "To ensure regulatory compliance, security monitoring, and audit readiness", "To improve service reliability and performance"],
+            "source": "Generated through use of Finxbridge platforms and systems",
+            "disclosure": "Shared with regulated financial institutions, auditors, regulators, and infrastructure partners as required by law or contract"
+          }
+        ]
+      },
+      {
+        "number": "3",
+        "title": "Sharing of Personal Information",
+        "content": "We share personal information only where necessary and lawful, including:",
+        "items": [
+          "With cloud infrastructure, analytics, monitoring, and security providers",
+          "With banks, NBFCs, regulated entities, and partners for service delivery",
+          "To comply with applicable laws, RBI guidelines, court orders, or regulatory requirements",
+          "To protect the rights, property, security, and integrity of Finxbridge and its stakeholders"
+        ],
+        "note": "We do not sell personal data."
+      },
+      {
+        "number": "4",
+        "title": "Analytics & Communications",
+        "content": "We use analytics tools (such as Google Analytics or equivalent) to understand how visitors interact with our Site and services.",
+        "items": [
+          "These tools may collect IP address, usage patterns, and browser data",
+          "You can opt out of Google Analytics using tools provided by Google",
+          "Communications may include service updates, regulatory notices, or business communications"
+        ]
+      },
+      {
+        "number": "5",
+        "title": "Cookies & Tracking Technologies",
+        "content": "Cookies are small data files stored on your device to enhance website functionality and performance.",
+        "cookieTypes": [
+          { "type": "Functional Cookies", "description": "essential for site operation" },
+          { "type": "Performance & Analytics Cookies", "description": "to understand usage trends" },
+          { "type": "Security Cookies", "description": "to protect against unauthorized access" }
+        ],
+        "cookieHelp": ["Maintain session integrity", "Improve website performance", "Understand visitor behaviour"],
+        "note": "You may control cookies through your browser settings. Disabling cookies may affect certain site features."
+      },
+      {
+        "number": "6",
+        "title": "Data Retention",
+        "content": "We retain personal information only for as long as necessary:",
+        "items": [
+          "To fulfill business and contractual obligations",
+          "To comply with regulatory and legal requirements",
+          "For audit, security, and dispute-resolution purposes"
+        ]
+      },
+      {
+        "number": "7",
+        "title": "Data Security",
+        "content": "Finxbridge implements industry-standard security practices, including:",
+        "items": ["Access controls", "Encryption", "Secure cloud infrastructure", "Audit logging", "Periodic security assessments"],
+        "note": "While no system is completely secure, we continuously improve our safeguards."
+      },
+      {
+        "number": "8",
+        "title": "Do Not Track",
+        "content": "Currently, there is no uniform standard for responding to \"Do Not Track\" signals. Accordingly, our data practices do not change based on such signals."
+      },
+      {
+        "number": "9",
+        "title": "Changes to This Privacy Policy",
+        "content": "We may update this Privacy Policy periodically to reflect:",
+        "items": ["Changes in services", "Legal or regulatory updates", "Operational improvements"],
+        "note": "The updated version will be posted on this page with a revised \"Last Updated\" date."
+      },
+      {
+        "number": "10",
+        "title": "Contact Information",
+        "content": "If you have questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us at:",
+        "contact": { "email": "info@finxbridge.com" }
+      }
+    ],
+    "cta": {
+      "title": "Have Questions About Our Privacy Policy?",
+      "description": "We're here to help. Reach out to us for any privacy-related queries.",
+      "button": { "text": "Contact Us", "href": "/contact" }
+    }
+  },
+  "terms": {
+    "metadata": {
+      "title": "Terms & Conditions - Finxbridge | Legal Agreement",
+      "description": "Review the terms and conditions governing the use of Finxbridge website and services. Legal agreements and user responsibilities."
+    },
+    "hero": {
+      "title": "Terms & Conditions",
+      "subtitle": "Please read these terms carefully before using our website"
+    },
+    "intro": {
+      "paragraphs": [
+        "These Terms & Conditions govern your access to and use of the website www.finxbridge.com (the \"Website\"), operated by Finxbridge LLP (\"Finxbridge\", \"we\", \"us\", or \"our\").",
+        "By accessing or using this Website, you agree to comply with and be bound by these Terms & Conditions, along with our Privacy Policy, Disclaimer Policy, and any other policies or notices that may apply to specific sections of the Website."
+      ],
+      "warning": "If you do not agree with these Terms, please do not use this Website."
+    },
+    "sections": [
+      {
+        "number": "1",
+        "title": "Definitions",
+        "definitions": [
+          { "term": "\"Website\"", "definition": "refers to www.finxbridge.com and all pages contained therein." },
+          { "term": "\"User\", \"you\", \"your\"", "definition": "refers to any visitor, client, partner, or entity accessing the Website." },
+          { "term": "\"Finxbridge\"", "definition": "refers to Finxbridge LLP, including its affiliates and permitted partners." }
+        ]
+      },
+      {
+        "number": "2",
+        "title": "Use of the Website",
+        "content": "The content of this Website is provided for general informational and business purposes only.",
+        "items": [
+          "Website content may be updated, modified, or removed without notice",
+          "No guarantee is provided regarding accuracy, completeness, or suitability",
+          "Use of any information on this Website is entirely at your own risk"
+        ],
+        "note": "You are responsible for ensuring that any information or services referenced meet your specific business, technical, or regulatory requirements."
+      },
+      {
+        "number": "3",
+        "title": "No Offer or Advice",
+        "content": "Nothing on this Website shall be construed as:",
+        "items": [
+          "An offer or solicitation to provide financial products",
+          "Financial, legal, investment, or regulatory advice",
+          "A commitment to provide services unless agreed in writing"
+        ],
+        "note": "All fintech, platform, API, and systems-integration services are governed by separate written agreements."
+      },
+      {
+        "number": "4",
+        "title": "Intellectual Property Rights",
+        "content": "All content on this Website, including but not limited to:",
+        "itemsLeft": ["Text, documents, designs, layouts", "Graphics and visual elements", "Logos, trademarks, and branding"],
+        "itemsRight": ["Technical diagrams and descriptions", "Software and code", "All other materials"],
+        "note": "is owned by or licensed to Finxbridge LLP and protected under applicable intellectual property laws.",
+        "warning": "Unauthorized reproduction, distribution, modification, or commercial use is strictly prohibited."
+      },
+      {
+        "number": "5",
+        "title": "Trademarks",
+        "content": "All trademarks displayed on the Website are the property of Finxbridge or their respective owners.",
+        "note": "Nothing on this Website grants any license or right to use any trademark without prior written consent."
+      },
+      {
+        "number": "6",
+        "title": "Prohibited Use",
+        "content": "You must not:",
+        "items": [
+          "Use the Website for unlawful or fraudulent purposes",
+          "Attempt unauthorized access to systems or data",
+          "Introduce malicious code, bots, or scraping tools",
+          "Misrepresent your identity or affiliation",
+          "Copy or exploit Website content for commercial use"
+        ],
+        "warning": "Unauthorized use may result in legal action and/or criminal liability."
+      },
+      {
+        "number": "7",
+        "title": "Third-Party Links",
+        "content": "This Website may contain links to third-party websites for reference or convenience.",
+        "items": [
+          "Does not control or endorse third-party websites",
+          "Is not responsible for third-party content or availability",
+          "Assumes no liability for any loss arising from third-party links"
+        ],
+        "warning": "Access to such websites is at your own risk."
+      },
+      {
+        "number": "8",
+        "title": "Limitation of Liability",
+        "content": "To the maximum extent permitted by law, Finxbridge shall not be liable for:",
+        "items": [
+          "Any direct, indirect, or consequential loss or damage",
+          "Loss of data, profits, or business opportunity",
+          "Errors, omissions, or inaccuracies in Website content",
+          "Temporary unavailability or technical disruptions"
+        ]
+      },
+      {
+        "number": "9",
+        "title": "Website Availability",
+        "content": "While we make reasonable efforts to maintain availability, Finxbridge does not guarantee uninterrupted or error-free operation of the Website.",
+        "items": ["Technical or maintenance issues", "Network failures", "Force majeure events"]
+      },
+      {
+        "number": "10",
+        "title": "Linking Policy",
+        "content": "You may not create a link to this Website from another website or document without prior written consent from Finxbridge."
+      },
+      {
+        "number": "11",
+        "title": "Governing Law & Jurisdiction",
+        "content": "These Terms & Conditions shall be governed by and interpreted in accordance with the laws of India.",
+        "note": "Any disputes arising out of or in connection with use of this Website shall be subject to the exclusive jurisdiction of courts in India."
+      },
+      {
+        "number": "12",
+        "title": "Changes to Terms",
+        "content": "Finxbridge reserves the right to modify these Terms & Conditions at any time without prior notice.",
+        "warning": "Continued use of the Website constitutes acceptance of the updated Terms."
+      },
+      {
+        "number": "13",
+        "title": "Contact Information",
+        "content": "For questions regarding these Terms & Conditions, please contact:",
+        "contact": { "email": "info@finxbridge.com" }
+      }
+    ],
+    "acceptance": {
+      "title": "Acceptance of Terms",
+      "content": "By using this Website, you acknowledge that you have read, understood, and agree to be bound by these Terms & Conditions."
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Explore our fintech solutions and see how we can help your business grow.",
+      "primaryButton": { "text": "Contact Us", "href": "/contact" },
+      "secondaryButton": { "text": "Our Services", "href": "/services" }
+    }
+  },
+  "cookiePolicy": {
+    "metadata": {
+      "title": "Cookie Policy - Finxbridge | Cookie Usage & Management",
+      "description": "Learn about how Finxbridge uses cookies and similar technologies on our website. Understand what cookies we use and how to manage your preferences."
+    },
+    "hero": {
+      "title": "Cookie Policy",
+      "subtitle": "Understanding how we use cookies to improve your experience"
+    },
+    "intro": {
+      "paragraphs": [
+        "This Cookie Policy explains how Finxbridge LLP (\"Finxbridge\", \"we\", \"us\", or \"our\") uses cookies and similar technologies when you visit our website www.finxbridge.com (the \"Website\").",
+        "This policy provides you with clear and comprehensive information about the cookies we use and the purposes for using them."
+      ]
+    },
+    "sections": [
+      {
+        "number": "1",
+        "title": "What Are Cookies?",
+        "content": "Cookies are small text files that are placed on your device (computer, smartphone, tablet, etc.) when you visit a website. They are widely used to make websites work more efficiently and provide information to website owners.",
+        "characteristics": [
+          "Store small amounts of data on your device",
+          "Help websites remember your preferences and actions",
+          "Improve your browsing experience",
+          "Enable websites to function properly",
+          "Provide analytics and performance data"
+        ]
+      },
+      {
+        "number": "2",
+        "title": "Types of Cookies We Use",
+        "cookieTypes": [
+          {
+            "name": "Strictly Necessary Cookies",
+            "icon": "shield",
+            "description": "These cookies are essential for the Website to function properly. They enable basic functions like page navigation, access to secure areas, and form submissions.",
+            "examples": ["Session management cookies", "Security and authentication cookies", "Load balancing cookies"]
+          },
+          {
+            "name": "Performance & Analytics Cookies",
+            "icon": "chart",
+            "description": "These cookies collect information about how visitors use our Website, such as which pages are visited most often and whether error messages are received. This helps us improve the Website's performance.",
+            "examples": ["Google Analytics cookies", "Page visit tracking cookies", "Error tracking cookies"]
+          },
+          {
+            "name": "Functional Cookies",
+            "icon": "settings",
+            "description": "These cookies enable the Website to remember choices you make (such as language preferences or region) and provide enhanced, more personalized features.",
+            "examples": ["Language preference cookies", "User interface customization cookies", "Remember me functionality cookies"]
+          },
+          {
+            "name": "Targeting & Marketing Cookies",
+            "icon": "target",
+            "description": "These cookies may be set through our site by our marketing partners. They may be used to build a profile of your interests and show you relevant content on other sites.",
+            "examples": ["Remarketing cookies", "Advertising network cookies", "Social media cookies"]
+          }
+        ]
+      },
+      {
+        "number": "3",
+        "title": "Third-Party Cookies",
+        "content": "In addition to our own cookies, we may use various third-party cookies to report usage statistics and deliver advertising on and through the Website.",
+        "services": [
+          { "name": "Google Analytics", "purpose": "For website traffic analysis and user behavior insights" },
+          { "name": "Social Media Platforms", "purpose": "For social sharing and engagement features" },
+          { "name": "Marketing Tools", "purpose": "For targeted advertising and remarketing campaigns" }
+        ]
+      },
+      {
+        "number": "4",
+        "title": "How to Manage Cookies",
+        "content": "You have the right to decide whether to accept or reject cookies. You can exercise your cookie rights by setting your preferences in your browser settings.",
+        "options": [
+          {
+            "method": "Browser Settings",
+            "description": "Most browsers allow you to control cookies through their settings preferences. You can set your browser to refuse cookies or delete certain cookies."
+          },
+          {
+            "method": "Opt-Out Tools",
+            "description": "You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on or through Google's Ads Settings."
+          }
+        ],
+        "warning": "If you choose to block or delete cookies, some features of the Website may not function properly, and your user experience may be affected."
+      },
+      {
+        "number": "5",
+        "title": "Browser-Specific Cookie Management",
+        "browsers": [
+          { "name": "Google Chrome", "path": "Settings → Privacy and Security → Cookies and other site data" },
+          { "name": "Mozilla Firefox", "path": "Options → Privacy & Security → Cookies and Site Data" },
+          { "name": "Safari", "path": "Preferences → Privacy → Manage Website Data" },
+          { "name": "Microsoft Edge", "path": "Settings → Cookies and site permissions → Manage and delete cookies" }
+        ]
+      },
+      {
+        "number": "6",
+        "title": "Updates to This Cookie Policy",
+        "content": "We may update this Cookie Policy from time to time to reflect changes in our practices or for legal, operational, or regulatory reasons.",
+        "note": "We encourage you to review this page periodically for the latest information on our cookie practices."
+      },
+      {
+        "number": "7",
+        "title": "Contact Us",
+        "content": "If you have any questions about our use of cookies or this Cookie Policy, please contact us:",
+        "contact": { "email": "info@finxbridge.com" }
+      }
+    ],
+    "privacyNotice": {
+      "title": "Your Privacy Matters",
+      "content": "At Finxbridge, we respect your privacy and are committed to transparency about how we use cookies and other technologies. We use cookies to enhance your experience, analyze site usage, and assist in our marketing efforts. You can manage your cookie preferences at any time through your browser settings."
+    },
+    "cta": {
+      "title": "Questions About Cookies?",
+      "description": "We're here to help you understand how we use cookies and protect your privacy.",
+      "button": { "text": "Contact Us", "href": "/contact" }
+    }
+  },
+  "disclaimer": {
+    "metadata": {
+      "title": "Disclaimer Policy - Finxbridge | Terms of Use",
+      "description": "Important disclaimer and legal information about using Finxbridge services and website. Understand the limitations and proper use of our platform."
+    },
+    "hero": {
+      "title": "Disclaimer Policy",
+      "subtitle": "Important information about using our services"
+    },
+    "intro": {
+      "paragraphs": [
+        "The information contained on this website www.finxbridge.com is provided by Finxbridge LLP (\"Finxbridge\", \"we\", \"us\", or \"our\") for general informational purposes only.",
+        "While we endeavor to keep the information accurate, current, and relevant, Finxbridge makes no representations or warranties of any kind, express or implied, regarding the completeness, accuracy, reliability, suitability, availability, or timeliness of the information, content, services, platforms, APIs, or related materials contained on this website."
+      ],
+      "warning": "Any reliance you place on such information is strictly at your own risk."
+    },
+    "sections": [
+      {
+        "title": "No Professional or Regulatory Advice",
+        "content": "Nothing on this website constitutes:",
+        "items": [
+          "Financial advice",
+          "Legal advice",
+          "Investment advice",
+          "Credit, lending, or underwriting advice",
+          "Regulatory or compliance advice"
+        ],
+        "note": "Finxbridge is a technology and systems-integration provider and does not directly offer consumer financial products or make credit decisions. All services are subject to separate contractual agreements."
+      },
+      {
+        "title": "Limitation of Liability",
+        "content": "To the fullest extent permitted by applicable law, Finxbridge shall not be liable for any loss or damage, including but not limited to:",
+        "items": [
+          "Indirect or consequential loss or damage",
+          "Loss of data, business, revenue, or profits",
+          "Business interruption",
+          "System downtime or service disruption"
+        ],
+        "note": "arising out of, or in connection with, the use of this website or reliance on any information contained herein."
+      },
+      {
+        "title": "Third-Party Links",
+        "content": "This website may contain links to third-party websites that are not under the control of Finxbridge.",
+        "items": [
+          "Has no control over the nature, content, or availability of such websites",
+          "Does not endorse or recommend any third-party views, products, or services",
+          "Assumes no responsibility for third-party content or practices"
+        ],
+        "warning": "Access to third-party links is at your own discretion and risk."
+      },
+      {
+        "title": "Website Availability",
+        "content": "While we take reasonable efforts to keep the website operational, Finxbridge does not guarantee uninterrupted availability.",
+        "unavailabilityReasons": [
+          { "title": "Technical Issues", "description": "System failures or bugs" },
+          { "title": "Maintenance Activities", "description": "Scheduled updates" },
+          { "title": "System Upgrades", "description": "Infrastructure improvements" },
+          { "title": "Force Majeure Events", "description": "Beyond our control" }
+        ]
+      },
+      {
+        "title": "Changes to Content",
+        "content": "Finxbridge reserves the right to modify, update, or remove website content at any time without prior notice."
+      }
+    ],
+    "importantNotice": {
+      "title": "Important Notice",
+      "content": "By using this website, you acknowledge that you have read, understood, and agree to be bound by this Disclaimer Policy. If you do not agree with any part of this disclaimer, please do not use our website."
+    },
+    "cta": {
+      "title": "Questions About Our Services?",
+      "description": "Contact us to learn more about how Finxbridge can help your organization.",
+      "button": { "text": "Get in Touch", "href": "/contact" }
+    }
+  }
+}

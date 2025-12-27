@@ -1,0 +1,137 @@
+{
+  "metadata": {
+    "title": "Solutions - Finxbridge | Industry-Specific Fintech Solutions",
+    "description": "Discover Finxbridge industry-specific fintech solutions designed for banks, NBFCs, and financial institutions across India."
+  },
+  "hero": {
+    "title": "Industry Solutions",
+    "subtitle": "Tailored Fintech Solutions for Your Specific Needs"
+  },
+  "solutionsSection": {
+    "title": "Our Solutions Portfolio",
+    "subtitle": "Comprehensive solutions designed to address specific industry challenges"
+  },
+  "solutions": [
+    {
+      "title": "Core Banking Solutions",
+      "category": "Banking",
+      "description": "Modern core banking platforms that enable digital transformation and enhance operational efficiency.",
+      "features": [
+        "Account Management",
+        "Transaction Processing",
+        "Customer Onboarding",
+        "Multi-channel Banking",
+        "Real-time Settlement",
+        "Regulatory Reporting"
+      ],
+      "benefits": ["Reduced operational costs by 40%", "Faster time to market", "24/7 availability"]
+    },
+    {
+      "title": "Lending Management Platform",
+      "category": "NBFCs",
+      "description": "End-to-end lending solution from application to disbursal and collections.",
+      "features": [
+        "Loan Origination System",
+        "Credit Assessment & Scoring",
+        "Document Management",
+        "Automated Underwriting",
+        "Disbursal Management",
+        "Collections & Recovery"
+      ],
+      "benefits": ["30% faster loan processing", "Reduced NPAs", "Improved customer experience"]
+    },
+    {
+      "title": "Digital Payment Gateway",
+      "category": "Payments",
+      "description": "Secure and scalable payment processing solution supporting multiple payment methods.",
+      "features": [
+        "Multi-payment Support (UPI, Cards, Wallets)",
+        "Payment Security & Encryption",
+        "Real-time Transaction Monitoring",
+        "Settlement & Reconciliation",
+        "Fraud Detection",
+        "API Integration"
+      ],
+      "benefits": ["99.9% uptime", "PCI DSS compliant", "Instant settlements"]
+    },
+    {
+      "title": "Wealth Management Suite",
+      "category": "Investment",
+      "description": "Comprehensive platform for managing investments, portfolios, and client relationships.",
+      "features": [
+        "Portfolio Management",
+        "Investment Advisory",
+        "Risk Profiling",
+        "Goal-based Planning",
+        "Performance Analytics",
+        "Client Portal"
+      ],
+      "benefits": ["Automated rebalancing", "Real-time insights", "Enhanced client engagement"]
+    },
+    {
+      "title": "RegTech Solutions",
+      "category": "Compliance",
+      "description": "Automated compliance and regulatory reporting solutions to meet regulatory requirements.",
+      "features": [
+        "KYC & AML Automation",
+        "Transaction Monitoring",
+        "Regulatory Reporting",
+        "Audit Trail Management",
+        "Risk Scoring",
+        "Sanction Screening"
+      ],
+      "benefits": ["90% reduction in manual work", "Real-time compliance", "Reduced regulatory risk"]
+    },
+    {
+      "title": "Mobile Banking App",
+      "category": "Digital Banking",
+      "description": "Feature-rich mobile banking application for iOS and Android platforms.",
+      "features": [
+        "Account Management",
+        "Fund Transfers",
+        "Bill Payments",
+        "Card Management",
+        "Investment Services",
+        "Personalized Insights"
+      ],
+      "benefits": ["4.8+ app store rating", "Biometric security", "Offline capabilities"]
+    }
+  ],
+  "techStack": {
+    "title": "Our Technology Stack",
+    "subtitle": "Built on modern, scalable, and secure technologies",
+    "categories": [
+      { "category": "Cloud", "items": ["AWS", "Azure", "Google Cloud", "Kubernetes"] },
+      { "category": "Backend", "items": ["Node.js", "Java", "Python", "Microservices"] },
+      { "category": "Frontend", "items": ["React", "Angular", "Vue.js", "React Native"] },
+      { "category": "Security", "items": ["Encryption", "OAuth 2.0", "Blockchain", "Biometrics"] }
+    ]
+  },
+  "integrations": {
+    "title": "Seamless Integrations",
+    "subtitle": "Our solutions integrate with leading platforms and services",
+    "items": [
+      {
+        "title": "Banking APIs",
+        "description": "Integration with RBI, NPCI, and banking networks",
+        "icon": "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z"
+      },
+      {
+        "title": "Payment Gateways",
+        "description": "Support for all major payment processors in India",
+        "icon": "M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"
+      },
+      {
+        "title": "Third-party Services",
+        "description": "KYC, credit bureaus, and compliance partners",
+        "icon": "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Looking for a Custom Solution?",
+    "description": "We specialize in building tailored solutions that meet your unique business requirements.",
+    "primaryButton": { "text": "Request a Demo", "href": "/contact" },
+    "secondaryButton": { "text": "View Case Studies", "href": "/case-studies" }
+  }
+}

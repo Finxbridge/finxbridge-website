@@ -1,0 +1,41 @@
+{
+  "title": "Get In",
+  "titleHighlight": "Touch",
+  "description": "Ready to transform your financial institution? Contact us today to discuss your project",
+  "contactInfo": [
+    {
+      "type": "email",
+      "title": "Email",
+      "value": "info@finxbridge.com"
+    },
+    {
+      "type": "phone",
+      "title": "Phone",
+      "value": "+91 XXXX XXXXXX"
+    },
+    {
+      "type": "location",
+      "title": "Location",
+      "value": "India"
+    }
+  ],
+  "socialLinks": [
+    { "name": "LinkedIn", "href": "https://linkedin.com" },
+    { "name": "Twitter", "href": "https://twitter.com" },
+    { "name": "Facebook", "href": "https://facebook.com" },
+    { "name": "Instagram", "href": "https://instagram.com" }
+  ],
+  "form": {
+    "nameLabel": "Name *",
+    "namePlaceholder": "Your name",
+    "emailLabel": "Email *",
+    "emailPlaceholder": "your@email.com",
+    "companyLabel": "Company",
+    "companyPlaceholder": "Your company",
+    "messageLabel": "Message *",
+    "messagePlaceholder": "Tell us about your project...",
+    "submitButton": "Send Message",
+    "submittingButton": "Sending...",
+    "successMessage": "Thank you! We'll get back to you soon."
+  }
+}

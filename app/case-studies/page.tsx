@@ -1,104 +1,33 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { loadContent, CaseStudyItem, PageMetadata, PageHero, CTASection, StatItem } from '@/lib/content'
+
+interface TestimonialItem {
+  quote: string;
+  author: string;
+  rating: number;
+}
+
+interface CaseStudiesContent {
+  metadata: PageMetadata;
+  hero: PageHero;
+  stats: Array<{ number: string; label: string }>;
+  caseStudies: CaseStudyItem[];
+  testimonials: {
+    title: string;
+    subtitle: string;
+    items: TestimonialItem[];
+  };
+  cta: CTASection;
+}
 
 export const metadata: Metadata = {
   title: 'Case Studies - Finxbridge | Success Stories & Client Testimonials',
   description: 'Explore how Finxbridge has helped banks, NBFCs, and fintechs achieve digital transformation success with our proven solutions.',
 }
 
-export default function CaseStudiesPage() {
-  const caseStudies = [
-    {
-      title: 'Digital Transformation for Leading Private Bank',
-      client: 'Top 10 Private Bank in India',
-      category: 'Banking',
-      challenge: 'The bank was struggling with legacy systems that hindered customer experience and operational efficiency. They needed a complete digital overhaul while ensuring zero downtime.',
-      solution: 'Implemented a modern core banking platform with cloud-native architecture, mobile banking apps, and integrated payment solutions.',
-      results: [
-        '60% reduction in transaction processing time',
-        '45% increase in digital adoption',
-        '35% reduction in operational costs',
-        '4.7/5 customer satisfaction rating'
-      ],
-      duration: '18 months',
-      impact: '₹500+ Cr in cost savings annually'
-    },
-    {
-      title: 'End-to-End Lending Platform for NBFC',
-      client: 'Leading NBFC with ₹10,000+ Cr AUM',
-      category: 'NBFC',
-      challenge: 'Manual loan processing was taking 7-10 days, resulting in high operational costs and poor customer experience. High NPA rates due to inadequate credit assessment.',
-      solution: 'Deployed automated lending management system with AI-powered credit scoring, digital KYC, and automated underwriting capabilities.',
-      results: [
-        'Loan processing time reduced from 7 days to 24 hours',
-        '50% reduction in operational costs',
-        '30% decrease in NPA rates',
-        '3x increase in loan processing capacity'
-      ],
-      duration: '12 months',
-      impact: '₹200+ Cr additional revenue in first year'
-    },
-    {
-      title: 'Payment Gateway Integration for Fintech Startup',
-      client: 'Fast-growing Payment Aggregator',
-      category: 'Fintech',
-      challenge: 'Needed a scalable payment infrastructure to handle rapid growth and integrate with multiple payment methods and banks.',
-      solution: 'Built a robust payment gateway with multi-channel support, real-time monitoring, and automated reconciliation.',
-      results: [
-        '99.99% uptime achieved',
-        'Processing 1M+ transactions daily',
-        '40% reduction in payment failures',
-        'PCI DSS Level 1 compliant'
-      ],
-      duration: '9 months',
-      impact: 'Enabled 10x transaction volume growth'
-    },
-    {
-      title: 'RegTech Solution for Compliance Automation',
-      client: 'Multi-national Financial Institution',
-      category: 'Compliance',
-      challenge: 'Manual compliance processes were time-consuming and error-prone. Regulatory reporting required significant resources and was prone to delays.',
-      solution: 'Implemented comprehensive RegTech platform with automated KYC, AML monitoring, and regulatory reporting.',
-      results: [
-        '90% reduction in manual compliance work',
-        '100% on-time regulatory reporting',
-        '70% faster KYC processing',
-        'Zero compliance violations in 2 years'
-      ],
-      duration: '15 months',
-      impact: '₹150+ Cr in compliance cost savings'
-    },
-    {
-      title: 'Mobile-First Banking for Rural Cooperative Bank',
-      client: 'State Cooperative Bank',
-      category: 'Digital Banking',
-      challenge: 'Needed to serve rural customers with limited internet connectivity while expanding digital services.',
-      solution: 'Developed lightweight mobile banking app with offline capabilities, vernacular language support, and agent-assisted banking.',
-      results: [
-        '200,000+ app downloads in 6 months',
-        '85% of transactions now digital',
-        'Expanded reach to 500+ villages',
-        '4.6/5 app store rating'
-      ],
-      duration: '10 months',
-      impact: '5x increase in customer base'
-    },
-    {
-      title: 'Wealth Management Platform Modernization',
-      client: 'Leading Wealth Management Firm',
-      category: 'Investment',
-      challenge: 'Legacy wealth management system lacked modern portfolio management tools and client engagement features.',
-      solution: 'Built comprehensive wealth management suite with robo-advisory, goal-based planning, and client portal.',
-      results: [
-        '₹5,000+ Cr AUM migrated successfully',
-        '60% increase in client engagement',
-        'Portfolio rebalancing automated',
-        '25% reduction in advisory costs'
-      ],
-      duration: '14 months',
-      impact: '40% growth in AUM in first year'
-    }
-  ]
+export default async function CaseStudiesPage() {
+  const content = await loadContent<CaseStudiesContent>('case-studies.json');
 
   return (
     <main className="min-h-screen bg-white">
@@ -107,10 +36,10 @@ export default function CaseStudiesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-              Success Stories
+              {content.hero.title}
             </h1>
             <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto animate-slide-up">
-              Real Results from Real Clients Across India
+              {content.hero.subtitle}
             </p>
           </div>
         </div>
@@ -120,12 +49,7 @@ export default function CaseStudiesPage() {
       <section className="py-16 bg-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8">
-            {[
-              { number: '500+', label: 'Projects Delivered' },
-              { number: '100+', label: 'Happy Clients' },
-              { number: '₹1000+ Cr', label: 'Cost Savings Generated' },
-              { number: '99.5%', label: 'Client Satisfaction' }
-            ].map((stat, index) => (
+            {content.stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl font-bold text-primary mb-2">{stat.number}</div>
                 <div className="text-dark-light">{stat.label}</div>
@@ -139,7 +63,7 @@ export default function CaseStudiesPage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="space-y-12">
-            {caseStudies.map((study, index) => (
+            {content.caseStudies.map((study, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all overflow-hidden border border-gray-100">
                 <div className="grid lg:grid-cols-3">
                   {/* Left Column - Overview */}
@@ -216,30 +140,14 @@ export default function CaseStudiesPage() {
       <section className="py-20 bg-light">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-dark mb-4">What Our Clients Say</h2>
+            <h2 className="text-4xl font-bold text-dark mb-4">{content.testimonials.title}</h2>
             <p className="text-xl text-dark-light max-w-3xl mx-auto">
-              Hear directly from our satisfied clients
+              {content.testimonials.subtitle}
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                quote: "Finxbridge transformed our digital infrastructure completely. Their expertise and commitment to our success were exceptional.",
-                author: "CTO, Leading Private Bank",
-                rating: 5
-              },
-              {
-                quote: "The lending platform has revolutionized our operations. We're processing loans faster than ever with significantly reduced costs.",
-                author: "CEO, NBFC",
-                rating: 5
-              },
-              {
-                quote: "Outstanding service and support. The team understood our unique requirements and delivered a perfect solution.",
-                author: "Head of Technology, Fintech Startup",
-                rating: 5
-              }
-            ].map((testimonial, index) => (
+            {content.testimonials.items.map((testimonial, index) => (
               <div key={index} className="bg-white p-8 rounded-xl shadow-lg">
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
@@ -259,23 +167,27 @@ export default function CaseStudiesPage() {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-primary-slate to-primary-aqua text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Write Your Success Story?</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-6">{content.cta.title}</h2>
           <p className="text-xl text-white/90 mb-8">
-            Join the growing list of successful financial institutions transforming with Finxbridge.
+            {content.cta.description}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-light transition-colors inline-block"
-            >
-              Start Your Journey
-            </Link>
-            <Link
-              href="/services"
-              className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors inline-block"
-            >
-              Explore Services
-            </Link>
+            {content.cta.primaryButton && (
+              <Link
+                href={content.cta.primaryButton.href}
+                className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-light transition-colors inline-block"
+              >
+                {content.cta.primaryButton.text}
+              </Link>
+            )}
+            {content.cta.secondaryButton && (
+              <Link
+                href={content.cta.secondaryButton.href}
+                className="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white/10 transition-colors inline-block"
+              >
+                {content.cta.secondaryButton.text}
+              </Link>
+            )}
           </div>
         </div>
       </section>

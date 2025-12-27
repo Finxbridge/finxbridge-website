@@ -1,12 +1,46 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
+import { loadContent } from '@/lib/content'
+
+interface CookiePolicyContent {
+  metadata: { title: string; description: string };
+  hero: { title: string; subtitle: string };
+  intro: { paragraphs: string[] };
+  sections: Array<{
+    number: string;
+    title: string;
+    content?: string;
+    characteristics?: string[];
+    cookieTypes?: Array<{
+      name: string;
+      icon: string;
+      description: string;
+      examples: string[];
+    }>;
+    services?: Array<{ name: string; purpose: string }>;
+    options?: Array<{ method: string; description: string }>;
+    warning?: string;
+    browsers?: Array<{ name: string; path: string }>;
+    note?: string;
+    contact?: { email: string };
+  }>;
+  privacyNotice: { title: string; content: string };
+  cta: {
+    title: string;
+    description: string;
+    button: { text: string; href: string };
+  };
+}
 
 export const metadata: Metadata = {
   title: 'Cookie Policy - Finxbridge | Cookie Usage & Management',
   description: 'Learn about how Finxbridge uses cookies and similar technologies on our website. Understand what cookies we use and how to manage your preferences.',
 }
 
-export default function CookiePolicyPage() {
+export default async function CookiePolicyPage() {
+  const legalContent = await loadContent<{ cookiePolicy: CookiePolicyContent }>('legal.json')
+  const content = legalContent.cookiePolicy
+
   return (
     <main className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -14,10 +48,10 @@ export default function CookiePolicyPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
-              Cookie Policy
+              {content.hero.title}
             </h1>
             <p className="text-xl sm:text-2xl text-white/90 max-w-3xl mx-auto animate-slide-up">
-              Understanding how we use cookies to improve your experience
+              {content.hero.subtitle}
             </p>
           </div>
         </div>
@@ -30,43 +64,37 @@ export default function CookiePolicyPage() {
 
             <div className="bg-light p-6 rounded-xl mb-8">
               <p className="text-dark-light leading-relaxed mb-0">
-                This Cookie Policy explains how <strong>Finxbridge LLP</strong> ("Finxbridge", "we", "us", or "our") uses cookies
-                and similar technologies when you visit our website{' '}
-                <a href="https://www.finxbridge.com" className="text-primary hover:underline">www.finxbridge.com</a>{' '}
-                (the "Website").
+                {content.intro.paragraphs[0]}
               </p>
               <p className="text-dark-light leading-relaxed mt-4 mb-0">
-                This policy provides you with clear and comprehensive information about the cookies we use and the purposes for using them.
+                {content.intro.paragraphs[1]}
               </p>
             </div>
 
-            {/* Section 1 */}
+            {/* Section 1 - What Are Cookies? */}
             <div className="mb-10">
               <h2 className="text-3xl font-bold text-dark mb-4 flex items-center">
-                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">1</span>
-                What Are Cookies?
+                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">{content.sections[0].number}</span>
+                {content.sections[0].title}
               </h2>
               <p className="text-dark-light leading-relaxed mb-4">
-                Cookies are small text files that are placed on your device (computer, smartphone, tablet, etc.) when you visit a website.
-                They are widely used to make websites work more efficiently and provide information to website owners.
+                {content.sections[0].content}
               </p>
               <div className="bg-light p-6 rounded-xl">
                 <h3 className="text-xl font-bold text-dark mb-3">Key Characteristics of Cookies:</h3>
                 <ul className="list-disc pl-6 text-dark-light space-y-2 mb-0">
-                  <li>Store small amounts of data on your device</li>
-                  <li>Help websites remember your preferences and actions</li>
-                  <li>Improve your browsing experience</li>
-                  <li>Enable websites to function properly</li>
-                  <li>Provide analytics and performance data</li>
+                  {content.sections[0].characteristics!.map((char, index) => (
+                    <li key={index}>{char}</li>
+                  ))}
                 </ul>
               </div>
             </div>
 
-            {/* Section 2 */}
+            {/* Section 2 - Types of Cookies We Use */}
             <div className="mb-10">
               <h2 className="text-3xl font-bold text-dark mb-6 flex items-center">
-                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">2</span>
-                Types of Cookies We Use
+                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">{content.sections[1].number}</span>
+                {content.sections[1].title}
               </h2>
 
               {/* Strictly Necessary Cookies */}
@@ -76,17 +104,16 @@ export default function CookiePolicyPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                   </svg>
                   <div>
-                    <h3 className="text-2xl font-bold text-dark mb-2">Strictly Necessary Cookies</h3>
+                    <h3 className="text-2xl font-bold text-dark mb-2">{content.sections[1].cookieTypes![0].name}</h3>
                     <p className="text-dark-light mb-3">
-                      These cookies are essential for the Website to function properly. They enable basic functions like page navigation,
-                      access to secure areas, and form submissions.
+                      {content.sections[1].cookieTypes![0].description}
                     </p>
                     <div className="bg-white p-4 rounded-lg">
                       <p className="text-sm text-dark font-semibold mb-2">Examples:</p>
                       <ul className="list-disc pl-6 text-dark-light text-sm space-y-1 mb-0">
-                        <li>Session management cookies</li>
-                        <li>Security and authentication cookies</li>
-                        <li>Load balancing cookies</li>
+                        {content.sections[1].cookieTypes![0].examples.map((example, index) => (
+                          <li key={index}>{example}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -100,17 +127,16 @@ export default function CookiePolicyPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                   </svg>
                   <div>
-                    <h3 className="text-2xl font-bold text-dark mb-2">Performance & Analytics Cookies</h3>
+                    <h3 className="text-2xl font-bold text-dark mb-2">{content.sections[1].cookieTypes![1].name}</h3>
                     <p className="text-dark-light mb-3">
-                      These cookies collect information about how visitors use our Website, such as which pages are visited most often
-                      and whether error messages are received. This helps us improve the Website's performance.
+                      {content.sections[1].cookieTypes![1].description}
                     </p>
                     <div className="bg-white p-4 rounded-lg">
                       <p className="text-sm text-dark font-semibold mb-2">Examples:</p>
                       <ul className="list-disc pl-6 text-dark-light text-sm space-y-1 mb-0">
-                        <li>Google Analytics cookies</li>
-                        <li>Page visit tracking cookies</li>
-                        <li>Error tracking cookies</li>
+                        {content.sections[1].cookieTypes![1].examples.map((example, index) => (
+                          <li key={index}>{example}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -125,17 +151,16 @@ export default function CookiePolicyPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                   <div>
-                    <h3 className="text-2xl font-bold text-dark mb-2">Functional Cookies</h3>
+                    <h3 className="text-2xl font-bold text-dark mb-2">{content.sections[1].cookieTypes![2].name}</h3>
                     <p className="text-dark-light mb-3">
-                      These cookies enable the Website to remember choices you make (such as language preferences or region) and
-                      provide enhanced, more personalized features.
+                      {content.sections[1].cookieTypes![2].description}
                     </p>
                     <div className="bg-white p-4 rounded-lg">
                       <p className="text-sm text-dark font-semibold mb-2">Examples:</p>
                       <ul className="list-disc pl-6 text-dark-light text-sm space-y-1 mb-0">
-                        <li>Language preference cookies</li>
-                        <li>User interface customization cookies</li>
-                        <li>Remember me functionality cookies</li>
+                        {content.sections[1].cookieTypes![2].examples.map((example, index) => (
+                          <li key={index}>{example}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -149,17 +174,16 @@ export default function CookiePolicyPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 20l4-16m2 16l4-16M6 9h14M4 15h14" />
                   </svg>
                   <div>
-                    <h3 className="text-2xl font-bold text-dark mb-2">Targeting & Marketing Cookies</h3>
+                    <h3 className="text-2xl font-bold text-dark mb-2">{content.sections[1].cookieTypes![3].name}</h3>
                     <p className="text-dark-light mb-3">
-                      These cookies may be set through our site by our marketing partners. They may be used to build a profile of your
-                      interests and show you relevant content on other sites.
+                      {content.sections[1].cookieTypes![3].description}
                     </p>
                     <div className="bg-white p-4 rounded-lg">
                       <p className="text-sm text-dark font-semibold mb-2">Examples:</p>
                       <ul className="list-disc pl-6 text-dark-light text-sm space-y-1 mb-0">
-                        <li>Remarketing cookies</li>
-                        <li>Advertising network cookies</li>
-                        <li>Social media cookies</li>
+                        {content.sections[1].cookieTypes![3].examples.map((example, index) => (
+                          <li key={index}>{example}</li>
+                        ))}
                       </ul>
                     </div>
                   </div>
@@ -167,159 +191,113 @@ export default function CookiePolicyPage() {
               </div>
             </div>
 
-            {/* Section 3 */}
+            {/* Section 3 - Third-Party Cookies */}
             <div className="mb-10">
               <h2 className="text-3xl font-bold text-dark mb-4 flex items-center">
-                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">3</span>
-                Third-Party Cookies
+                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">{content.sections[2].number}</span>
+                {content.sections[2].title}
               </h2>
               <p className="text-dark-light leading-relaxed mb-4">
-                In addition to our own cookies, we may use various third-party cookies to report usage statistics and deliver
-                advertising on and through the Website.
+                {content.sections[2].content}
               </p>
               <div className="bg-light p-6 rounded-xl">
                 <h3 className="text-xl font-bold text-dark mb-3">Common Third-Party Services:</h3>
                 <ul className="list-disc pl-6 text-dark-light space-y-2 mb-0">
-                  <li><strong>Google Analytics:</strong> For website traffic analysis and user behavior insights</li>
-                  <li><strong>Social Media Platforms:</strong> For social sharing and engagement features</li>
-                  <li><strong>Marketing Tools:</strong> For targeted advertising and remarketing campaigns</li>
+                  {content.sections[2].services!.map((service, index) => (
+                    <li key={index}><strong>{service.name}:</strong> {service.purpose}</li>
+                  ))}
                 </ul>
               </div>
             </div>
 
-            {/* Section 4 */}
+            {/* Section 4 - How to Manage Cookies */}
             <div className="mb-10">
               <h2 className="text-3xl font-bold text-dark mb-4 flex items-center">
-                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">4</span>
-                How to Manage Cookies
+                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">{content.sections[3].number}</span>
+                {content.sections[3].title}
               </h2>
               <p className="text-dark-light leading-relaxed mb-4">
-                You have the right to decide whether to accept or reject cookies. You can exercise your cookie rights by setting
-                your preferences in your browser settings.
+                {content.sections[3].content}
               </p>
 
               <div className="grid md:grid-cols-2 gap-6 mb-6">
-                <div className="bg-light p-6 rounded-xl">
-                  <h3 className="text-lg font-bold text-dark mb-3 flex items-center">
-                    <svg className="w-6 h-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
-                    </svg>
-                    Browser Settings
-                  </h3>
-                  <p className="text-dark-light text-sm">
-                    Most browsers allow you to control cookies through their settings preferences. You can set your browser to
-                    refuse cookies or delete certain cookies.
-                  </p>
-                </div>
-
-                <div className="bg-light p-6 rounded-xl">
-                  <h3 className="text-lg font-bold text-dark mb-3 flex items-center">
-                    <svg className="w-6 h-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    Opt-Out Tools
-                  </h3>
-                  <p className="text-dark-light text-sm">
-                    You can opt out of Google Analytics by installing the Google Analytics Opt-out Browser Add-on or through
-                    Google's Ads Settings.
-                  </p>
-                </div>
+                {content.sections[3].options!.map((option, index) => (
+                  <div key={index} className="bg-light p-6 rounded-xl">
+                    <h3 className="text-lg font-bold text-dark mb-3 flex items-center">
+                      <svg className="w-6 h-6 text-primary mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        {index === 0 ? (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                        ) : (
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        )}
+                      </svg>
+                      {option.method}
+                    </h3>
+                    <p className="text-dark-light text-sm">
+                      {option.description}
+                    </p>
+                  </div>
+                ))}
               </div>
 
               <div className="bg-amber-50 border-l-4 border-amber-500 p-6 rounded-r-xl">
                 <p className="text-dark font-semibold mb-2">Please Note:</p>
                 <p className="text-dark-light mb-0">
-                  If you choose to block or delete cookies, some features of the Website may not function properly, and your user
-                  experience may be affected.
+                  {content.sections[3].warning}
                 </p>
               </div>
             </div>
 
-            {/* Section 5 */}
+            {/* Section 5 - Browser-Specific Cookie Management */}
             <div className="mb-10">
               <h2 className="text-3xl font-bold text-dark mb-4 flex items-center">
-                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">5</span>
-                Browser-Specific Cookie Management
+                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">{content.sections[4].number}</span>
+                {content.sections[4].title}
               </h2>
 
               <div className="space-y-4">
-                <div className="bg-light p-5 rounded-xl">
-                  <h4 className="font-bold text-dark mb-2 flex items-center">
-                    <svg className="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.667c5.155 0 9.333 4.178 9.333 9.333s-4.178 9.333-9.333 9.333-9.333-4.178-9.333-9.333S6.845 2.667 12 2.667z"/>
-                    </svg>
-                    Google Chrome
-                  </h4>
-                  <p className="text-dark-light text-sm">
-                    Settings → Privacy and Security → Cookies and other site data
-                  </p>
-                </div>
-
-                <div className="bg-light p-5 rounded-xl">
-                  <h4 className="font-bold text-dark mb-2 flex items-center">
-                    <svg className="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.667c5.155 0 9.333 4.178 9.333 9.333s-4.178 9.333-9.333 9.333-9.333-4.178-9.333-9.333S6.845 2.667 12 2.667z"/>
-                    </svg>
-                    Mozilla Firefox
-                  </h4>
-                  <p className="text-dark-light text-sm">
-                    Options → Privacy & Security → Cookies and Site Data
-                  </p>
-                </div>
-
-                <div className="bg-light p-5 rounded-xl">
-                  <h4 className="font-bold text-dark mb-2 flex items-center">
-                    <svg className="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.667c5.155 0 9.333 4.178 9.333 9.333s-4.178 9.333-9.333 9.333-9.333-4.178-9.333-9.333S6.845 2.667 12 2.667z"/>
-                    </svg>
-                    Safari
-                  </h4>
-                  <p className="text-dark-light text-sm">
-                    Preferences → Privacy → Manage Website Data
-                  </p>
-                </div>
-
-                <div className="bg-light p-5 rounded-xl">
-                  <h4 className="font-bold text-dark mb-2 flex items-center">
-                    <svg className="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.667c5.155 0 9.333 4.178 9.333 9.333s-4.178 9.333-9.333 9.333-9.333-4.178-9.333-9.333S6.845 2.667 12 2.667z"/>
-                    </svg>
-                    Microsoft Edge
-                  </h4>
-                  <p className="text-dark-light text-sm">
-                    Settings → Cookies and site permissions → Manage and delete cookies
-                  </p>
-                </div>
+                {content.sections[4].browsers!.map((browser, index) => (
+                  <div key={index} className="bg-light p-5 rounded-xl">
+                    <h4 className="font-bold text-dark mb-2 flex items-center">
+                      <svg className="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.667c5.155 0 9.333 4.178 9.333 9.333s-4.178 9.333-9.333 9.333-9.333-4.178-9.333-9.333S6.845 2.667 12 2.667z"/>
+                      </svg>
+                      {browser.name}
+                    </h4>
+                    <p className="text-dark-light text-sm">
+                      {browser.path}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
 
-            {/* Section 6 */}
+            {/* Section 6 - Updates to This Cookie Policy */}
             <div className="mb-10">
               <h2 className="text-3xl font-bold text-dark mb-4 flex items-center">
-                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">6</span>
-                Updates to This Cookie Policy
+                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">{content.sections[5].number}</span>
+                {content.sections[5].title}
               </h2>
               <p className="text-dark-light leading-relaxed mb-4">
-                We may update this Cookie Policy from time to time to reflect changes in our practices or for legal, operational,
-                or regulatory reasons.
+                {content.sections[5].content}
               </p>
               <p className="text-dark-light leading-relaxed">
-                We encourage you to review this page periodically for the latest information on our cookie practices.
+                {content.sections[5].note}
               </p>
             </div>
 
-            {/* Section 7 */}
+            {/* Section 7 - Contact Us */}
             <div className="mb-10">
               <h2 className="text-3xl font-bold text-dark mb-4 flex items-center">
-                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">7</span>
-                Contact Us
+                <span className="bg-primary text-white w-10 h-10 rounded-lg flex items-center justify-center mr-3 text-lg">{content.sections[6].number}</span>
+                {content.sections[6].title}
               </h2>
               <p className="text-dark-light leading-relaxed mb-4">
-                If you have any questions about our use of cookies or this Cookie Policy, please contact us:
+                {content.sections[6].content}
               </p>
               <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-xl">
                 <p className="text-dark-light mb-0">
-                  <strong className="text-dark">Email:</strong> info@finxbridge.com
+                  <strong className="text-dark">Email:</strong> {content.sections[6].contact!.email}
                 </p>
               </div>
             </div>
@@ -331,11 +309,9 @@ export default function CookiePolicyPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
                 <div>
-                  <h3 className="text-xl font-bold text-dark mb-3">Your Privacy Matters</h3>
+                  <h3 className="text-xl font-bold text-dark mb-3">{content.privacyNotice.title}</h3>
                   <p className="text-dark-light leading-relaxed mb-0">
-                    At Finxbridge, we respect your privacy and are committed to transparency about how we use cookies and other
-                    technologies. We use cookies to enhance your experience, analyze site usage, and assist in our marketing efforts.
-                    You can manage your cookie preferences at any time through your browser settings.
+                    {content.privacyNotice.content}
                   </p>
                 </div>
               </div>
@@ -348,15 +324,15 @@ export default function CookiePolicyPage() {
       {/* CTA Section */}
       <section className="py-16 bg-gradient-to-br from-primary via-primary-slate to-primary-aqua text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-4">Questions About Cookies?</h2>
+          <h2 className="text-3xl font-bold mb-4">{content.cta.title}</h2>
           <p className="text-xl text-white/90 mb-8">
-            We're here to help you understand how we use cookies and protect your privacy.
+            {content.cta.description}
           </p>
           <Link
-            href="/contact"
+            href={content.cta.button.href}
             className="bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-light transition-colors inline-block"
           >
-            Contact Us
+            {content.cta.button.text}
           </Link>
         </div>
       </section>
